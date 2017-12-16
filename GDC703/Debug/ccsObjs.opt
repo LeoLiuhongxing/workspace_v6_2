@@ -1,0 +1,1 @@
+"./IO_Config.obj" "./SPI.obj" "./main.obj" "../lnk_msp430f47177.cmd" -llibmath.a -llibc.a 

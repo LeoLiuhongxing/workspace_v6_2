@@ -1,0 +1,18 @@
+/*
+ * SPI.h
+ *
+ *  Created on: 2017Äê11ÔÂ26ÈÕ
+ *      Author: leo
+ */
+
+#ifndef SPI_H_
+#define SPI_H_
+
+void SPI_init(void);
+unsigned char spi_transfer_byte(unsigned char data);
+void spi_rx_frame(unsigned char* dst, unsigned char size);
+void spi_tx_frame(const unsigned char* src, unsigned char size);
+int SPI_Read(unsigned char slave_select_id,	unsigned char* dst,int size);
+int SPI_Write(unsigned char slave_select_id,unsigned char* src, int size);
+
+#endif /* SPI_H_ */

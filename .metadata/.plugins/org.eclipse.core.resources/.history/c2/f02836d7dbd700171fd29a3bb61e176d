@@ -1,0 +1,16 @@
+/*
+ * AD7172.h
+ *
+ *  Created on: 2017Äê12ÔÂ3ÈÕ
+ *      Author: leo
+ */
+
+#ifndef AD7172_H_
+#define AD7172_H_
+
+void AD7172_Init(void);
+
+
+
+
+#endif /* AD7172_H_ */

@@ -1,0 +1,47 @@
+/*
+ * led_driver.c
+ *
+ *  Created on: 2017Äê12ÔÂ2ÈÕ
+ *      Author: leo
+ */
+
+#include "IIC.h"
+#include <stdbool.h>
+
+unsigned char led_control(bool led_state, unsigned char led)
+{
+	unsigned char Dev_addr;
+	unsigned int tmp;
+
+	Dev_addr =CAT3626_ADDRESS;
+	i2c_start();
+	i2c_SendByte(Dev_addr);
+	if(i2c_check_ACK() == FALSE)
+	{
+		return AckError;
+	}
+	i2c_delay_ms(5);
+	i2c_SendByte(AddrHigh);
+	if(i2c_check_ACK() == FALSE)
+	{
+	return AckError;
+	}
+	i2c_SendByte(AddrLow);
+	if(i2c_check_ACK() == FALSE)
+	{
+	return AckError;
+	}
+	while(n--)
+	{
+	i2c_SendByte(*p++);
+	if(i2c_check_ACK() == FALSE)
+	{
+	 return AckError;
+	}
+	}
+	i2c_stop();
+	i2c_delay_ms(10);
+	return 0;
+}
+
+

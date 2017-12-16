@@ -1,0 +1,63 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CMD_SRCS += \
+../lnk_msp430f47177.cmd 
+
+C_SRCS += \
+../AD7172.c \
+../IIC.c \
+../IO_Config.c \
+../SPI.c \
+../flash.c \
+../led_driver.c \
+../main.c 
+
+OBJS += \
+./AD7172.obj \
+./IIC.obj \
+./IO_Config.obj \
+./SPI.obj \
+./flash.obj \
+./led_driver.obj \
+./main.obj 
+
+C_DEPS += \
+./AD7172.d \
+./IIC.d \
+./IO_Config.d \
+./SPI.d \
+./flash.d \
+./led_driver.d \
+./main.d 
+
+C_DEPS__QUOTED += \
+"AD7172.d" \
+"IIC.d" \
+"IO_Config.d" \
+"SPI.d" \
+"flash.d" \
+"led_driver.d" \
+"main.d" 
+
+OBJS__QUOTED += \
+"AD7172.obj" \
+"IIC.obj" \
+"IO_Config.obj" \
+"SPI.obj" \
+"flash.obj" \
+"led_driver.obj" \
+"main.obj" 
+
+C_SRCS__QUOTED += \
+"../AD7172.c" \
+"../IIC.c" \
+"../IO_Config.c" \
+"../SPI.c" \
+"../flash.c" \
+"../led_driver.c" \
+"../main.c" 
+
+

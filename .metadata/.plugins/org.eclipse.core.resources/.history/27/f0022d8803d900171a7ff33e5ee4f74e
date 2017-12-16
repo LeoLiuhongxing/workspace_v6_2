@@ -1,0 +1,66 @@
+/*
+ * SPI.c
+ *
+ *  Created on: 2017Äê11ÔÂ20ÈÕ
+ *      Author: leo
+ */
+#include "SPI.h"
+#include <msp430.h>
+void SPI_init(void)
+{
+
+	P3DIR |= BIT4+BIT5+BIT6;//Chip Select
+
+	P3SEL |= BIT1 + BIT2 + BIT3;
+	UCB0CTL0 |= UCMST+UCSYNC+UCMSB;    //3-pin, 8-bit SPI master
+	UCB0CTL1 |= UCSSEL_2;                     // SMCLK
+	UCB0BR0 = 0x02;                           // /2
+	UCB0BR1 = 0;                              //
+	UCB0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
+//	IE2 |= UCB0RXIE;                          // Enable USCI_A0 RX interrupt
+
+}
+
+//--------------------------------------------------------------------------------------------------
+unsigned char spi_transfer_byte(unsigned char data){
+	UCB0TXBUF = data;    // write
+	while (!(IFG2 & UCB0RXIFG)); // wait for transfer to complete
+	IFG2 &= ~UCB0RXIFG; // clear the rx flag
+    return(UCB0RXIFG);
+}
+
+//--------------------------------------------------------------------------------------------------
+void spi_rx_frame(unsigned char* dst, unsigned char size){
+    while(size){
+    	UCB0TXBUF = DUMMY_CHAR;     // dummy write
+    	while (!(IFG2 & UCB0RXIFG)); // wait for transfer to complete
+        *dst = UCB0RXBUF;
+        dst++;
+        size--;
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+void spi_tx_frame(const unsigned char* src, unsigned char size){
+    while(size){
+    	UCB0TXBUF = *src;
+        src++;
+        while (!(IFG2 & UC0TXIFG)); // wait for tx buffer to be ready
+        size--;
+    }
+   // while ((SPI_UCSTAT & UCBUSY) == 1); // wait for transfer to complete
+    IFG2 &= ~UCB0RXIFG; // clear the rx flag
+}
+
+//--------------------------------------------------------------------------------------------------
+void spi_transfer_frame(unsigned char* dst, const unsigned char* src, unsigned char size){
+    while(size){
+        SPI_UCTXBUF = *src;
+        src++;
+        while ((SPI_UCIFG & UCRXIFG) == 0); // wait for transfer to complete
+        *dst = SPI_UCRXBUF;
+        dst++;
+        size--;
+    }
+}
+

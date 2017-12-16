@@ -1,0 +1,14 @@
+/*
+ * AD7172.c
+ *
+ *  Created on: 2017Äê12ÔÂ3ÈÕ
+ *      Author: leo
+ */
+#include <msp430.h>
+#include "AD7172.h"
+
+void AD7172_Init(void);
+void AD7172_Config(void);
+unsigned short AD7172_Read(void);
+
+
