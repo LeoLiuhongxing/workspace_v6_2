@@ -1,1 +1,1 @@
-"./IIC.obj" "./IO_Config.obj" "./SPI.obj" "./ad717x.obj" "./flash.obj" "./led_driver.obj" "./main.obj" "../lnk_msp430f47177.cmd" -llibmath.a -llibc.a 
+"./AD5064.obj" "./IIC.obj" "./IO_Config.obj" "./SPI.obj" "./ad717x.obj" "./flash.obj" "./led_driver.obj" "./main.obj" "../lnk_msp430f47177.cmd" -llibmath.a -llibc.a 
