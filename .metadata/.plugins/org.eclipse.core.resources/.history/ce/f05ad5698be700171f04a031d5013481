@@ -1,0 +1,59 @@
+/*
+ * MCP23S17.c
+ *
+ *  Created on: 2017Äê12ÔÂ23ÈÕ
+ *      Author: leo
+ */
+
+/*************************************************************
+   Function Name:  InitMCP
+   Return Value:   void
+   Parameters:     void
+   Description:    Initializes the MCP23X17 devices
+**************************************************************/
+void InitMCP( void )
+{
+//Set Mode to I2C
+	SetSSP(I2CMODE);
+
+//Configure 23017
+  Write23X17(GPPUA,  0x0F);   // Pullups
+  Write23X17(IOCONA, 0x40); 	//
+  Write23X17(IODIRA, 0xFF);   //All inputs by default (this is the POR default)
+  Write23X17(IODIRB, 0xFF);   //All inputs by default (this is the POR default)
+//Set Mode to SPI
+	SetSSP(SPIMODE);
+//Configure 23S17
+  Write23X17(GPPUA,  0x0F);   // Pullups
+  Write23X17(IOCONB, 0x40);   //
+  Write23X17(IODIRA, 0xFF);   //All inputs by default (this is the POR default)
+  Write23X17(IODIRB, 0xFF);   //All inputs by default (this is the POR default)
+}
+
+void Write23X17(unsigned char reg, unsigned char data)
+{
+	if(SerialMode == I2CMODE)	//If 23017 selected
+ 	  I2CWriteByte(reg, data); //
+	else											//Else 23S17 is selected
+	  SPIWriteByte(reg, data); //
+}
+
+/*************************************************************
+   Function Name:  Read23X17
+   Return Value:   void
+   Parameters:     Register address
+   Description:    Reads a 23X17 register. I2C or SPI is in
+                   global byte
+**************************************************************/
+unsigned char Read23X17(unsigned char reg)
+{
+  unsigned char num;
+	if(SerialMode == I2CMODE)	//If 23017 selected
+		num = I2CReadByte(reg);
+	else											//Else 23S17 is selected
+		num = SPIReadByte(reg);
+	return(num);
+}
+
+
+

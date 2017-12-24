@@ -13,9 +13,11 @@ ORDERED_OBJS += \
 "./AD5064.obj" \
 "./IIC.obj" \
 "./IO_Config.obj" \
+"./MCP23S17.obj" \
 "./SPI.obj" \
 "./UARTA0.obj" \
 "./ad717x.obj" \
+"./com_protocol.obj" \
 "./flash.obj" \
 "./led_driver.obj" \
 "./main.obj" \
@@ -161,8 +163,8 @@ GDC703.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
-	-$(RM) "AD5064.d" "IIC.d" "IO_Config.d" "SPI.d" "UARTA0.d" "ad717x.d" "flash.d" "led_driver.d" "main.d" 
-	-$(RM) "AD5064.obj" "IIC.obj" "IO_Config.obj" "SPI.obj" "UARTA0.obj" "ad717x.obj" "flash.obj" "led_driver.obj" "main.obj" 
+	-$(RM) "AD5064.d" "IIC.d" "IO_Config.d" "MCP23S17.d" "SPI.d" "UARTA0.d" "ad717x.d" "com_protocol.d" "flash.d" "led_driver.d" "main.d" 
+	-$(RM) "AD5064.obj" "IIC.obj" "IO_Config.obj" "MCP23S17.obj" "SPI.obj" "UARTA0.obj" "ad717x.obj" "com_protocol.obj" "flash.obj" "led_driver.obj" "main.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

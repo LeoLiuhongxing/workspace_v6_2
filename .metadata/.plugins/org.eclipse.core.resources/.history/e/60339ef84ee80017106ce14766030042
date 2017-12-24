@@ -1,0 +1,21 @@
+/*
+ * com_protocol.h
+ *
+ *  Created on: 2017Äê12ÔÂ23ÈÕ
+ *      Author: leo
+ */
+
+#ifndef COM_PROTOCOL_H_
+#define COM_PROTOCOL_H_
+
+enum COMMAND{
+	STOP_FUNCTION,
+	GD_CC_SWITCHING,
+
+};
+void stop_function_response(void);
+
+
+
+
+#endif /* COM_PROTOCOL_H_ */

@@ -1,0 +1,9 @@
+# FIXED
+
+MCP23S17.obj: ../MCP23S17.c
+MCP23S17.obj: ../MCP23S17.h
+MCP23S17.obj: ../SPI.h
+
+../MCP23S17.c: 
+../MCP23S17.h: 
+../SPI.h: 
