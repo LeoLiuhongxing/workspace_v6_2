@@ -25,8 +25,8 @@ void Write23X17(unsigned char reg, unsigned char data)
 {
 	char temp[2];
 	temp[0] = reg;
-	temp[2] = data;
-	spi_tx_frame(data, 2);
+	temp[1] = data;
+	spi_tx_frame(temp, 2);
 
 }
 

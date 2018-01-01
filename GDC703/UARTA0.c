@@ -5,14 +5,20 @@
  *      Author: leo
  */
 #include <msp430.h>
+#include "UARTA0.h"
 
 #define QUEUE_SIZE 64
+
+unsigned char switch_number1_flag = 0;//ÅÐ¶Ïswitch 1µÄ×´Ì¬£¿£¿£¿£¿£¿
+
 struct
 {
 	volatile unsigned char head;
 	volatile unsigned char tail;
     volatile unsigned char data[QUEUE_SIZE];
 }receive_queue;
+
+
 
 void UART0_Init(void)
 {
@@ -27,6 +33,28 @@ void UART0_Init(void)
   __bis_SR_register(LPM3_bits + GIE);       // Enter LPM3 w/ interrupts enabled
 }
 
+unsigned char Get_Baudrate(void)
+{
+	return (switch_number1_flag);//0:9600 1:4800 2:2400 3:1200
+}
+
+void Set_baudrate(unsigned char baudrate)
+{
+	switch(baudrate)
+	{
+		case BAUDRATE9600:
+			break;
+		case BAUDRATE4800:
+			break;
+		case BAUDRATE2400:
+			break;
+		case BAUDRATE1200:
+			break;
+		default:
+			break;
+	}
+
+}
 
 
 

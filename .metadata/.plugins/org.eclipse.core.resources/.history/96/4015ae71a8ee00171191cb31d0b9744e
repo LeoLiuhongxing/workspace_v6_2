@@ -1,0 +1,35 @@
+#include <msp430.h> 
+
+#include "IO_Config.h"
+#include "SPI.h"
+
+/*
+ * main.c
+ */
+int main(void) {
+
+      volatile unsigned int i;
+
+	  WDTCTL = WDTPW | WDTHOLD;                   // Stop watchdog timer
+	  FLL_CTL0 |= XCAP11PF;                     // Configure load caps
+
+	  // Wait for xtal to stabilize
+	  do
+	  {
+	    IFG1 &= ~OFIFG;                           // Clear OSCFault flag
+	    for (i = 0x47FF; i > 0; i--);             // Time for flag to set
+	  }
+	  while ((IFG1 & OFIFG));                   // OSCFault flag still set?
+
+	  for(i=2100;i>0;i--);                      // Now with stable ACLK, wait for
+	                                              // DCO to stabilize.
+
+	  IO_init();
+	  SPI_init();
+
+	  while(1)
+	  {
+
+	  }
+	return 0;
+}

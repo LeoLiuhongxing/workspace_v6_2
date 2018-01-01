@@ -15,5 +15,8 @@ void stop_function_response(void)
 	//send response
 }
 
+void select_function(void)//cc or GDC
+{
 
+}
 

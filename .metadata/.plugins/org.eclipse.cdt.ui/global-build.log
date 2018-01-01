@@ -2,10 +2,13 @@
 **** Build of configuration Release for project GDC703 ****
 
 "C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
-'Building file: ../com_protocol.c'
+'Building file: ../UARTA0.c'
 'Invoking: MSP430 Compiler'
-"C:/ti/ccsv6/tools/compiler/msp430_15.12.3.LTS/bin/cl430" -vmspx --data_model=restricted -O2 --use_hw_mpy=32 --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/msp430_15.12.3.LTS/include" --advice:power=all --define=__MSP430F47177__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal --preproc_with_compile --preproc_dependency="com_protocol.d"  "../com_protocol.c"
-'Finished building: ../com_protocol.c'
+"C:/ti/ccsv6/tools/compiler/msp430_15.12.3.LTS/bin/cl430" -vmspx --data_model=restricted -O2 --use_hw_mpy=32 --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/msp430_15.12.3.LTS/include" --advice:power=all --define=__MSP430F47177__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal --preproc_with_compile --preproc_dependency="UARTA0.d"  "../UARTA0.c"
+"../UARTA0.c", line 82: remark #1528-D: (ULP 3.1) Detected flag polling using IFG2. Recommend using an interrupt combined with enter LPMx and ISR
+"../UARTA0.c", line 80: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../UARTA0.c", line 12: remark #1535-D: (ULP 8.1) variable "switch_number1_flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+'Finished building: ../UARTA0.c'
 ' '
 'Building target: GDC703.out'
 'Invoking: MSP430 Linker'
