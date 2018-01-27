@@ -31,8 +31,11 @@
 #define OLATA    	0x014
 #define OLATB    	0x015
 
-void InitMCP( void );
-void Write23X17(unsigned char reg, unsigned char data);
-unsigned char Read23X17(unsigned char reg);
+void InitMCP_Output( void );
+void InitMCP_Input( void );
+void Write23X17_Output(unsigned char reg, unsigned char data);
+unsigned char Read23X17_Output(unsigned char reg);
+void Write23X17_Input(unsigned char reg, unsigned char data);
+unsigned char Read23X17_Input(unsigned char reg);
 
 #endif /* MCP23S17_H_ */

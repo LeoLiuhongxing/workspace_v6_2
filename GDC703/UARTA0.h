@@ -12,7 +12,18 @@
 #define	BAUDRATE4800 1
 #define	BAUDRATE2400 2
 #define	BAUDRATE1200 3
+#define QUEUE_SIZE 64
 
+typedef struct
+{
+	volatile unsigned char head;
+	volatile unsigned char tail;
+    volatile unsigned char data[QUEUE_SIZE];
+    volatile unsigned char command_complete_flag;
+}receive_queue_;
+
+
+receive_queue_ receive_queue;
 void Set_baudrate(unsigned char baudrate);
 unsigned char Get_Baudrate(void);
 void USCI_A0_TX (char* buffer, unsigned char size);

@@ -44,10 +44,15 @@ enum COMMAND_B{
     SET_ZERO_SPAN_GAS_FLOW_RATE,
 	ASK_ZERO_SPAN_GAS_FLOW_RATE,
 };
+#define GAS_DIVDER_FUNCTION 1
+#define CONVERTER_FUNCTION  0
+extern unsigned char function_selected;
+
+
 
 
 void stop_function_response(void);
-
+void parse_command(void);
 
 
 

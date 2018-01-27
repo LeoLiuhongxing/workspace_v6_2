@@ -7,21 +7,17 @@
 #include <msp430.h>
 #include "UARTA0.h"
 
-#define QUEUE_SIZE 64
+
 
 unsigned char switch_number1_flag = 0;//ÅÐ¶Ïswitch 1µÄ×´Ì¬£¿£¿£¿£¿£¿
 
-struct
-{
-	volatile unsigned char head;
-	volatile unsigned char tail;
-    volatile unsigned char data[QUEUE_SIZE];
-}receive_queue;
+
 
 
 
 void UART0_Init(void)
 {
+  unsigned char i = 0;
   P2SEL |= BIT4+BIT5;                       // P2.4,5 UART option select
   UCA0CTL1 |= UCSSEL_1;                     // CLK = ACLK
   UCA0BR0 = 0x03;                           // 32k/9600 - 3.41
@@ -30,7 +26,11 @@ void UART0_Init(void)
   UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
   IE2 |= UCA0RXIE;                 // Enable USCI_A0 TX/RX interrupt
 
-  __bis_SR_register(LPM3_bits + GIE);       // Enter LPM3 w/ interrupts enabled
+  for(i= 0;i<QUEUE_SIZE;i++)
+	  receive_queue.data[i] = 0;
+  receive_queue.command_complete_flag = 0;
+
+//  __bis_SR_register(LPM3_bits + GIE);       // Enter LPM3 w/ interrupts enabled
 }
 
 unsigned char Get_Baudrate(void)
@@ -68,9 +68,12 @@ void __attribute__ ((interrupt(USCIAB0RX_VECTOR))) USCI_A0_RX (void)
 #endif
 {
 	receive_queue.data[receive_queue.tail] = UCA0RXBUF;                        // RXBUF1 to TXBUF1
+	if(receive_queue.data[receive_queue.tail] == 0x0D)//cr
+		receive_queue.command_complete_flag++;
 	receive_queue.tail++;
 	if(receive_queue.tail >= QUEUE_SIZE)
 		receive_queue.tail = 0;
+
 
 }
 

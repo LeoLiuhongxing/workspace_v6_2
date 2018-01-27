@@ -15,8 +15,11 @@ void IO_init(void)
 	P9DIR |= BIT2;//p9.2 output for O3 driver signal control
 	P9DIR |= BIT3;//p9.2 output for O3 power signal control
 
-	P7DIR |= 0xFF;//p7.0~p7.7 output for valve control
-	P8DIR |= 0xFF;//p8.0~p8.7 output for valve control
+//	P7DIR |= 0xFF;//p7.0~p7.7 output for valve control
+//	P8DIR |= 0xFF;//p8.0~p8.7 output for valve control
+	P5DIR |=BIT5+BIT7;//p5.5 CS_SPI_IO_IN //P5.7 CS_SPI_IO_OUT
+	P5OUT |= (1<<5);//SPI in disable
+	P5OUT |= (1<<7);//spi out disable
 }
 
 
@@ -52,27 +55,3 @@ void O3_Power_Set(bool power_state)
 		P9OUT &= ~(1<<2);
 }
 
-void valve_control(unsigned short valve_no, bool valve_state)
-{
-	//0~7
-	if(valve_no <8)
-	{
-		if(valve_state == true)
-		{
-			P7OUT |= (1<<valve_no);
-		}else
-		{
-			P7OUT &= ~(1<<valve_no);
-		}
-	}else//8~15
-	{
-		if(valve_state == true)
-		{
-			P8OUT |= (1<<valve_no);
-		}else
-		{
-			P8OUT &= ~(1<<valve_no);
-		}
-
-	}
-}
