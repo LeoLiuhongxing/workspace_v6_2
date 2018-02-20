@@ -8,7 +8,7 @@
 #ifndef LED_DRIVER_H_
 #define LED_DRIVER_H_
 
-#define CAT3626_ADDRESS 0xCC;
+#define CAT3626_ADDRESS 0xCC
 #define POWER_LIGHT 0//register A
 #define OPE_LIGHT   0//register A
 #define ALM_LIGHT   1//register B

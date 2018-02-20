@@ -8,80 +8,98 @@ CMD_SRCS += \
 
 C_SRCS += \
 ../AD5064.c \
+../DS18B20.c \
 ../IIC.c \
 ../IO_Config.c \
 ../MCP23S17.c \
 ../SPI.c \
+../TimerA.c \
 ../UARTA0.c \
 ../ad717x.c \
 ../com_protocol.c \
 ../flash.c \
 ../led_driver.c \
-../main.c 
+../main.c \
+../valve.c 
 
 OBJS += \
 ./AD5064.obj \
+./DS18B20.obj \
 ./IIC.obj \
 ./IO_Config.obj \
 ./MCP23S17.obj \
 ./SPI.obj \
+./TimerA.obj \
 ./UARTA0.obj \
 ./ad717x.obj \
 ./com_protocol.obj \
 ./flash.obj \
 ./led_driver.obj \
-./main.obj 
+./main.obj \
+./valve.obj 
 
 C_DEPS += \
 ./AD5064.d \
+./DS18B20.d \
 ./IIC.d \
 ./IO_Config.d \
 ./MCP23S17.d \
 ./SPI.d \
+./TimerA.d \
 ./UARTA0.d \
 ./ad717x.d \
 ./com_protocol.d \
 ./flash.d \
 ./led_driver.d \
-./main.d 
+./main.d \
+./valve.d 
 
 C_DEPS__QUOTED += \
 "AD5064.d" \
+"DS18B20.d" \
 "IIC.d" \
 "IO_Config.d" \
 "MCP23S17.d" \
 "SPI.d" \
+"TimerA.d" \
 "UARTA0.d" \
 "ad717x.d" \
 "com_protocol.d" \
 "flash.d" \
 "led_driver.d" \
-"main.d" 
+"main.d" \
+"valve.d" 
 
 OBJS__QUOTED += \
 "AD5064.obj" \
+"DS18B20.obj" \
 "IIC.obj" \
 "IO_Config.obj" \
 "MCP23S17.obj" \
 "SPI.obj" \
+"TimerA.obj" \
 "UARTA0.obj" \
 "ad717x.obj" \
 "com_protocol.obj" \
 "flash.obj" \
 "led_driver.obj" \
-"main.obj" 
+"main.obj" \
+"valve.obj" 
 
 C_SRCS__QUOTED += \
 "../AD5064.c" \
+"../DS18B20.c" \
 "../IIC.c" \
 "../IO_Config.c" \
 "../MCP23S17.c" \
 "../SPI.c" \
+"../TimerA.c" \
 "../UARTA0.c" \
 "../ad717x.c" \
 "../com_protocol.c" \
 "../flash.c" \
 "../led_driver.c" \
-"../main.c" 
+"../main.c" \
+"../valve.c" 
 
 

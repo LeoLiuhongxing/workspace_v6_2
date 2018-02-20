@@ -21,7 +21,7 @@ void i2c_delay(unsigned char us)
 	unsigned char tmp;
 	while(us--)
 	{
-		for(tmp=0;tmp<4;tmp++)
+		for(tmp=0;tmp<5;tmp++)
 		{
 			_NOP();
 		}
@@ -31,12 +31,19 @@ void i2c_delay(unsigned char us)
 void i2c_delay_ms(unsigned char ms)
 {
 	unsigned int tmp;
-	while(ms--)
+	unsigned char i =8;
+	unsigned char j = 0;
+	j = ms;
+	for (i=0;i<4;i++)
 	{
-		for(tmp=0;tmp<5000;tmp++)
-		{
-			_NOP();
-		}
+	    ms = j;
+		while(ms--)
+	    {
+		   for(tmp=0;tmp<5000;tmp++)
+		   {
+			   _NOP();
+		   }
+	    }
 	}
 }
 
@@ -60,8 +67,8 @@ void i2c_stop(void)
 	SDA_LOW;
 	i2c_delay(2);
 	SCL_HIGH;
-	i2c_delay(2);
-	SDA_LOW;
+	//i2c_delay(2);
+	//SDA_LOW;
 	i2c_delay(2);
 	SDA_HIGH;
 }
@@ -76,7 +83,7 @@ void i2c_SendAck(void)
 	SCL_HIGH;
 	i2c_delay(2);
 	SCL_LOW;
-	SDA_HIGH;
+	i2c_delay(2);
 }
 
 void i2c_SendNoAck(void)
@@ -103,11 +110,11 @@ unsigned char i2c_check_ACK(void)
 	}
 	else
 	{
-		AckStatus = TURE;
+		AckStatus = TRUE;
 	}
 	SCL_LOW;
 	i2c_delay(2);
-	SDA_OUT;
+//	SDA_OUT;
 	return AckStatus;
 }
 
@@ -132,7 +139,7 @@ void i2c_SendByte(unsigned char data)
 		i2c_delay(2);
 		data <<= 1;
 	}
-	i2c_delay(15);
+	i2c_delay(2);
 }
 
 unsigned char i2c_RevByte(void)
@@ -147,7 +154,7 @@ unsigned char i2c_RevByte(void)
 		SCL_HIGH;
 		i2c_delay(2);
 		DATA <<= 1;
-		if(P2IN & 0x01)
+		if(P2IN & 0x02)
 		{
 			DATA |= 0x01;
 		}
@@ -156,8 +163,9 @@ unsigned char i2c_RevByte(void)
 			DATA &= 0xfe;
 		}
 		SCL_LOW;
+		i2c_delay(2);
 	}
-	SDA_OUT;
+//	SDA_OUT;
 	return DATA;
 }
 

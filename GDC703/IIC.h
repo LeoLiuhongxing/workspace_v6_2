@@ -7,17 +7,17 @@
 
 #ifndef IIC_H_
 #define IIC_H_
-#define   TURE                1
+#define   TRUE                1
 #define   FALSE               0
 #define   AckError            0x55
 #define   OutOfRang           0xaa
 #define   OutOfAddr           0xbb
-#define SDA_IN            P2DIR &=~BIT1    // P2.0 IN
-#define SDA_OUT           P2DIR |=BIT1     // P2.0 OUT
+#define SDA_IN            P2DIR &=~BIT1    // P2.1 IN
+#define SDA_OUT           P2DIR |=BIT1     // P2.1 OUT
 #define SDA_LOW           P2OUT &=~BIT1   // sda=0
 #define SDA_HIGH          P2OUT |=BIT1   // sda=1
-#define SCL_IN            P2DIR &=~BIT2    // P2.1 IN
-#define SCL_OUT           P2DIR |=BIT2    // P2.1 OUT
+#define SCL_IN            P2DIR &=~BIT2    // P2.2 IN
+#define SCL_OUT           P2DIR |=BIT2    // P2.2 OUT
 #define SCL_LOW           P2OUT &=~BIT2
 #define SCL_HIGH          P2OUT |=BIT2
 void i2c_delay(unsigned char us);

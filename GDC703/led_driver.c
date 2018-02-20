@@ -23,9 +23,8 @@ unsigned char led_control_lux(bool led_lux, unsigned char led)
 	{
 		return AckError;
 	}
-	i2c_delay_ms(5);//
-
 	//register_address
+	//i2c_SendByte(led);
 	i2c_SendByte(led);
 	if(i2c_check_ACK() == FALSE)
 	{
@@ -58,8 +57,6 @@ unsigned char led_control_on(bool led_state, unsigned char led)
 	{
 		return AckError;
 	}
-	i2c_delay_ms(5);//
-
 	//register_address
 	i2c_SendByte(3);
 	if(i2c_check_ACK() == FALSE)
@@ -67,16 +64,15 @@ unsigned char led_control_on(bool led_state, unsigned char led)
 		return AckError;
 	}
 
-	tmp = read_led_state();
-	if(led_state == LED_ON)
-	{
-		tmp |= led;
-	}else
-	{
-		tmp &=~led;
-	}
 
-	i2c_SendByte((unsigned char)tmp);//current data
+	//i2c_SendByte(0x1f);
+	//i2c_SendByte(0x01);
+	//i2c_SendByte(0x02);
+	//i2c_SendByte(0x03);
+	//i2c_SendByte(0x04);
+	//i2c_SendByte(0x08);
+	//i2c_SendByte(0x10);
+	i2c_SendByte(led);
 	if(i2c_check_ACK() == FALSE)
 	{
 		return AckError;
@@ -93,7 +89,7 @@ unsigned char read_led_state(void)
 	unsigned char Dev_addr;
 	unsigned char tmp;
 
-	Dev_addr = 0xCD;
+	Dev_addr = CAT3626_ADDRESS;
 	i2c_start();
 
 	//dev address
@@ -102,19 +98,28 @@ unsigned char read_led_state(void)
 	{
 		return AckError;
 	}
-	i2c_delay_ms(5);//
-
 	//register_address
 	i2c_SendByte(3);
 	if(i2c_check_ACK() == FALSE)
 	{
 		return AckError;
 	}
+//	i2c_delay_ms(3);
+	Dev_addr = CAT3626_ADDRESS+1;
+	i2c_start();
+
+	//dev address
+	i2c_SendByte(Dev_addr);
+	if(i2c_check_ACK() == FALSE)
+	{
+		return AckError;
+	}
 
 	tmp = i2c_RevByte();//current data
-	i2c_SendAck();
+	//i2c_SendAck();
+	i2c_SendNoAck();
 
 	i2c_stop();
-	i2c_delay_ms(10);
+//	i2c_delay_ms(10);
 	return tmp;
 }

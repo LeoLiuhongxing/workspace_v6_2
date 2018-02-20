@@ -1,26 +1,108 @@
 
-**** Build of configuration Release for project GDC703 ****
+**** Build of configuration Debug for project GDC703 ****
 
 "C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
-'Building file: ../UARTA0.c'
+'Building file: ../main.c'
 'Invoking: MSP430 Compiler'
-"C:/ti/ccsv6/tools/compiler/msp430_15.12.3.LTS/bin/cl430" -vmspx --data_model=restricted -O2 --use_hw_mpy=32 --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/msp430_15.12.3.LTS/include" --advice:power=all --define=__MSP430F47177__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal --preproc_with_compile --preproc_dependency="UARTA0.d"  "../UARTA0.c"
-"../UARTA0.c", line 82: remark #1528-D: (ULP 3.1) Detected flag polling using IFG2. Recommend using an interrupt combined with enter LPMx and ISR
-"../UARTA0.c", line 80: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
-"../UARTA0.c", line 12: remark #1535-D: (ULP 8.1) variable "switch_number1_flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
-'Finished building: ../UARTA0.c'
+"C:/ti/ccsv6/tools/compiler/msp430_15.12.3.LTS/bin/cl430" -vmspx --data_model=restricted --use_hw_mpy=32 --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/msp430_15.12.3.LTS/include" --advice:power=all -g --define=__MSP430F47177__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal --preproc_with_compile --preproc_dependency="main.d"  "../main.c"
+"../main.c", line 65: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 66: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 67: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 68: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 69: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 70: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 71: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 72: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 73: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 74: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 75: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 76: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 77: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 78: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 79: warning #70-D: integer conversion resulted in truncation
+"../main.c", line 63: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 63: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 65: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 66: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 67: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 68: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 69: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 70: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 71: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 72: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 73: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 74: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 75: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 76: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 77: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 78: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 79: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 205: warning #112-D: statement is unreachable
+"../main.c", line 211: warning #225-D: function "UART0_Init" declared implicitly
+"../main.c", line 284: warning #112-D: statement is unreachable
+"../main.c", line 120: warning #179-D: variable "temp" was declared but never referenced
+"../main.c", line 181: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 181: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 183: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 184: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 185: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 186: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 187: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 188: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 189: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 190: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 191: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 192: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 193: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 194: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 195: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 196: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 197: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 120: remark #1535-D: (ULP 8.1) variable "temp" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 27: remark #1535-D: (ULP 8.1) variable "function_selected" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 29: remark #1535-D: (ULP 8.1) variable "switch_operation_flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 36: remark #1535-D: (ULP 8.1) variable "component_gas_setting" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 37: remark #1535-D: (ULP 8.1) variable "bas_gas_setting" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 38: remark #1535-D: (ULP 8.1) variable "max_number_div_100" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "max_number_div_10" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "max_number_div_1" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "gas_concentration_flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "gas_concentration_PPM_INT" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 43: remark #1535-D: (ULP 8.1) variable "gas_concentration_PPM_POINT" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 44: remark #1535-D: (ULP 8.1) variable "gas_concentration_PPM_FRACTION0" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 45: remark #1535-D: (ULP 8.1) variable "gas_concentration_PPM_FRACTION1" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 46: remark #1535-D: (ULP 8.1) variable "gas_concentration_PPM_FRACTION2" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 47: remark #1535-D: (ULP 8.1) variable "gas_concentration_PPM_FRACTION3" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 48: remark #1535-D: (ULP 8.1) variable "gas_concentration_PPM_E" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 49: remark #1535-D: (ULP 8.1) variable "gas_concentration_PPM_flag1" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "gas_concentration_PPM_10_1" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "gas_concentration_PPM_10_2" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 54: remark #1535-D: (ULP 8.1) variable "division_ration_100" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 55: remark #1535-D: (ULP 8.1) variable "division_ration_10" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 56: remark #1535-D: (ULP 8.1) variable "division_ration_1" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+'Finished building: ../main.c'
 ' '
 'Building target: GDC703.out'
 'Invoking: MSP430 Linker'
-"C:/ti/ccsv6/tools/compiler/msp430_15.12.3.LTS/bin/cl430" -vmspx --data_model=restricted -O2 --use_hw_mpy=32 --advice:power=all --define=__MSP430F47177__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal -z -m"GDC703.map" --stack_size=80 --heap_size=80 --cinit_hold_wdt=on -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/ccs_base/msp430/lib/4xx" -i"C:/ti/ccsv6/tools/compiler/msp430_15.12.3.LTS/lib" -i"C:/ti/ccsv6/tools/compiler/msp430_15.12.3.LTS/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="GDC703_linkInfo.xml" --use_hw_mpy=32 --rom_model -o "GDC703.out" "./AD5064.obj" "./IIC.obj" "./IO_Config.obj" "./MCP23S17.obj" "./SPI.obj" "./UARTA0.obj" "./ad717x.obj" "./com_protocol.obj" "./flash.obj" "./led_driver.obj" "./main.obj" "../lnk_msp430f47177.cmd"  -llibmath.a -llibc.a 
+"C:/ti/ccsv6/tools/compiler/msp430_15.12.3.LTS/bin/cl430" -vmspx --data_model=restricted --use_hw_mpy=32 --advice:power=all -g --define=__MSP430F47177__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal -z -m"GDC703.map" --stack_size=80 --heap_size=80 --cinit_hold_wdt=on -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/ccs_base/msp430/lib/4xx" -i"C:/ti/ccsv6/tools/compiler/msp430_15.12.3.LTS/lib" -i"C:/ti/ccsv6/tools/compiler/msp430_15.12.3.LTS/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="GDC703_linkInfo.xml" --use_hw_mpy=32 --rom_model -o "GDC703.out" "./AD5064.obj" "./DS18B20.obj" "./IIC.obj" "./IO_Config.obj" "./MCP23S17.obj" "./SPI.obj" "./TimerA.obj" "./UARTA0.obj" "./ad717x.obj" "./com_protocol.obj" "./flash.obj" "./led_driver.obj" "./main.obj" "./valve.obj" "../lnk_msp430f47177.cmd"  -llibmath.a -llibc.a 
 <Linking>
+remark #10371-D: (ULP 1.1) Detected no uses of low power mode state changing instructions
 remark #10372-D: (ULP 4.1) Detected uninitialized Port 1 in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
 remark #10372-D: (ULP 4.1) Detected uninitialized Port 4 in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
-remark #10372-D: (ULP 4.1) Detected uninitialized Port 5 in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port 7 in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port 8 in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port 9 in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
 remark #10372-D: (ULP 4.1) Detected uninitialized Port 10 in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
 remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
 remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
 'Finished building target: GDC703.out'
 ' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project GDC703 ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for 'all'.
 
 **** Build Finished ****

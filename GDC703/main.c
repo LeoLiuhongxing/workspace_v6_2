@@ -10,7 +10,10 @@
 #include "ad717x.h"
 #include "led_driver.h"
 #include "DS18B20.h"
+#include "IIC.h"
 //operation mode
+
+#define DEBUG 1
 
 #define NORMAL_OPERATION_MODE 0
 #define INITIAL_MODE_1_2      1
@@ -53,7 +56,29 @@ unsigned char division_ration_10 = 0;
 unsigned char division_ration_1 = 0;
 
 
-
+void delay(void)
+{
+	  unsigned char j;
+	  unsigned char i;
+	  for(j =0;j<20;j++)
+	  {
+		  for(i=2100;i>0;i--);
+		  for(i=2100;i>0;i--);
+		  for(i=2100;i>0;i--);
+		  for(i=2100;i>0;i--);
+		  for(i=2100;i>0;i--);
+		  for(i=2100;i>0;i--);
+		  for(i=2100;i>0;i--);
+		  for(i=2100;i>0;i--);
+		  for(i=2100;i>0;i--);
+		  for(i=2100;i>0;i--);
+		  for(i=2100;i>0;i--);
+		  for(i=2100;i>0;i--);
+		  for(i=2100;i>0;i--);
+		  for(i=2100;i>0;i--);
+		  for(i=2100;i>0;i--);
+	  }
+}
 /*
  * main.c
  */
@@ -84,31 +109,99 @@ void system_init(void)
 	set_operation_mode();
 }
 
-
+unsigned char data;
 
 int main(void) {
 
       volatile unsigned int i;
+      unsigned char j;
+      unsigned char led= 1;
       unsigned int tempature = 0;
+      unsigned char temp = 0;
 
 	  WDTCTL = WDTPW | WDTHOLD;                   // Stop watchdog timer
-	  FLL_CTL0 |= XCAP11PF;                     // Configure load caps
+#if 1
+	   FLL_CTL0 |= XCAP11PF;           //1.042M
+	   //SCFI0 = FLLD_4+FN_4;                      // x4 DCO freq, 16MHz nominal DCO
+	   //SCFQCTL = 120;	  // (121+1) x 32768 x 4 = 16 MHz
+
+	 // P1DIR |= BIT1+BIT4+BIT5;                           // P1.1 output direction
+     // P1SEL |= BIT1+BIT4+BIT5;                           // P1.1 option select
+	 // while(1);
+#else
+	  WDTCTL = WDTPW+WDTHOLD;                   // Stop WDT
+	  __bis_SR_register(OSCOFF + SCG0 + GIE);   // Disable LFXT1 xtal osc & FLL loop
+
+	  FLL_CTL1 &= ~XT2OFF;                      // Activate XT2 high freq xtal
 
 	  // Wait for xtal to stabilize
 	  do
 	  {
-	    IFG1 &= ~OFIFG;                           // Clear OSCFault flag
-	    for (i = 0x47FF; i > 0; i--);             // Time for flag to set
+	  IFG1 &= ~OFIFG;                           // Clear OSCFault flag
+	  for (i = 5; i > 0; i--);                  // Time for flag to set
 	  }
 	  while ((IFG1 & OFIFG));                   // OSCFault flag still set?
 
-	  for(i=2100;i>0;i--);                      // Now with stable ACLK, wait for
-	                                              // DCO to stabilize.
+	  FLL_CTL1 |= SELM1;                        // MCLK = XT2
 
+	  P1DIR |= BIT1;                            // P1.1 output direction
+	  P1SEL |= BIT1;                            // P1.1 option select
+
+	  while(1);
+#endif
+#if 1
 	  IO_init();
+	  SCL_OUT;
+#ifdef DEBUG
 
+	  //FAN TEST: HIGH 24V Low: 3V
+	  //P3DIR |=BIT7 + BIT6;
+	  //P3OUT &= ~(BIT7+BIT6);//FAN1 AND FAN2
+	  //P3OUT = (BIT7+BIT6);
 
+	  //O3 power
+	  //P5OUT |= BIT0;//power on
+	  //P5OUT &= ~BIT0;
 
+	  //P5OUT |= BIT1;//signal on
+	  //P5OUT &= ~BIT1;
+	  led_control_lux(1,0);
+	  delay();
+	  led_control_lux(1,1);
+	  delay();
+	  led_control_lux(1,2);
+	  delay();
+	  while(1)
+	  {
+		  //data = read_led_state();
+		  led_control_on(1,led);
+		  led <<=1;
+		  if(led == 0x20)
+			  led = 1;
+		  for(j =0;j<2;j++)
+		  {
+			  for(i=2100;i>0;i--);
+			  for(i=2100;i>0;i--);
+			  for(i=2100;i>0;i--);
+			  for(i=2100;i>0;i--);
+			  for(i=2100;i>0;i--);
+			  for(i=2100;i>0;i--);
+			  for(i=2100;i>0;i--);
+			  for(i=2100;i>0;i--);
+			  for(i=2100;i>0;i--);
+			  for(i=2100;i>0;i--);
+			  for(i=2100;i>0;i--);
+			  for(i=2100;i>0;i--);
+			  for(i=2100;i>0;i--);
+			  for(i=2100;i>0;i--);
+			  for(i=2100;i>0;i--);
+			  //if(j == 5)
+				//  data = read_led_state();
+		  }
+	  }
+
+#endif
+#endif
 	  SPI_init();
 	  system_init();
 	  TimerA_Init();
@@ -116,10 +209,7 @@ int main(void) {
 	  InitMCP_Input();
 	  //AD717X_Setup();
 	  UART0_Init();
-
-	  //power led on
-	  led_control_on(1,POWER_LIGHT_ON);
-      while(1)
+    while(1)
 	  {
 		  //
 		  parse_command();
@@ -183,10 +273,10 @@ int main(void) {
 			 tempature = tempature>>4;
 			 if(tempature > TEMPRATURE)
 			 {
-				 P9OUT |= BIT0+BIT1;//FAN1 AND FAN2
+				 P3OUT |= BIT6+BIT7;//FAN1 AND FAN2
 			 }else
 			 {
-				 P9OUT ^=~( BIT0+BIT1);//FAN1 AND FAN2
+				 P3OUT &=~( BIT6+BIT7);//FAN1 AND FAN2
 			 }
 		  }
 

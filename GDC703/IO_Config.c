@@ -10,10 +10,10 @@
 
 void IO_init(void)
 {
-	P9DIR |= BIT0;//p9.0 OUTPUT For Fan1 control
-	P9DIR |= BIT1;//p9.1 output for fan2 control
-	P9DIR |= BIT2;//p9.2 output for O3 driver signal control
-	P9DIR |= BIT3;//p9.2 output for O3 power signal control
+	P3DIR |= BIT6;//p9.0 OUTPUT For Fan1 control
+	P3DIR |= BIT7;//p9.1 output for fan2 control
+	P5DIR |= BIT1;//p9.2 output for O3 driver signal control
+	P5DIR |= BIT0;//p9.2 output for O3 power signal control
 
 //	P7DIR |= 0xFF;//p7.0~p7.7 output for valve control
 //	P8DIR |= 0xFF;//p8.0~p8.7 output for valve control
