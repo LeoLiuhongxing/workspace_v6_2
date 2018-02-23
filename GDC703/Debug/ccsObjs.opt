@@ -1,1 +1,1 @@
-"./AD5064.obj" "./DS18B20.obj" "./IIC.obj" "./IO_Config.obj" "./MCP23S17.obj" "./SPI.obj" "./TimerA.obj" "./UARTA0.obj" "./ad717x.obj" "./com_protocol.obj" "./flash.obj" "./led_driver.obj" "./main.obj" "./valve.obj" "../lnk_msp430f47177.cmd" -llibmath.a -llibc.a 
+"./AD5064.obj" "./DS18B20.obj" "./IIC.obj" "./IO_Config.obj" "./MCP23S17.obj" "./SPI.obj" "./TimerA.obj" "./UARTA0.obj" "./UARTA1.obj" "./ad717x.obj" "./com_protocol.obj" "./flash.obj" "./led_driver.obj" "./main.obj" "./valve.obj" "../lnk_msp430f47177.cmd" -llibmath.a -llibc.a 

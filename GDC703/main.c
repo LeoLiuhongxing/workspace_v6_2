@@ -12,7 +12,8 @@
 #include "DS18B20.h"
 #include "IIC.h"
 //operation mode
-
+extern void UART1_Init(void);
+extern void USCI_A1_TX (char* buffer, unsigned char size);
 #define DEBUG 1
 
 #define NORMAL_OPERATION_MODE 0
@@ -152,6 +153,8 @@ int main(void) {
 #if 1
 	  IO_init();
 	  SCL_OUT;
+	  UART1_Init();
+	  //UART0_Init();
 #ifdef DEBUG
 
 	  //FAN TEST: HIGH 24V Low: 3V
@@ -195,8 +198,12 @@ int main(void) {
 			  for(i=2100;i>0;i--);
 			  for(i=2100;i>0;i--);
 			  for(i=2100;i>0;i--);
-			  //if(j == 5)
-				//  data = read_led_state();
+			  if(j == 1)
+				  data = read_led_state();
+			  //USCI_A1_TX(&data,1);
+			  data = led;
+			  //USCI_A0_TX(&data,1);
+			  USCI_A1_TX(&data,1);
 		  }
 	  }
 
@@ -208,7 +215,7 @@ int main(void) {
 	  InitMCP_Output();
 	  InitMCP_Input();
 	  //AD717X_Setup();
-	  UART0_Init();
+	  //UART0_Init();
     while(1)
 	  {
 		  //
